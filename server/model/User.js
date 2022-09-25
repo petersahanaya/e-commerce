@@ -18,6 +18,9 @@ const User = sequel.define('users', {
     password : {
         type : Sequelize.DataTypes.STRING,
         allowNull : false
+    },
+    token : {
+        type : Sequelize.DataTypes.TEXT
     }
 });
 
