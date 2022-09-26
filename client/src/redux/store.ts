@@ -1,12 +1,13 @@
-import { legacy_createStore, combineReducers, compose , applyMiddleware} from "redux";
-import thunk from 'redux-thunk';
-import { productReducer } from "./reducers/productReducer";
+import { configureStore } from '@reduxjs/toolkit';
+import productsSlice from './feature/productsSlice';
+import getProductIdSlice from './feature/getProductIdSlice';
 
-const reducer = combineReducers({
-    products :productReducer
+const store = configureStore({
+    reducer :  {
+        products : productsSlice,
+        getProductId : getProductIdSlice
+    }
 })
-
-const store = legacy_createStore(reducer, compose(applyMiddleware(thunk)));
 
 export default store
 

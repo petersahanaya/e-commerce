@@ -1,18 +1,23 @@
 import { useSelector } from "react-redux";
 import { ApiProps, UseSelectorProps } from "../types/Types";
-import { CardContainer, CardTopSale } from "./card.styled";
+import { CardContainer, CardLoadingContainer, CardTopSale } from "./card.styled";
 import { convertNumber } from "../functions/convert";
+import { Link } from "react-router-dom";
 const Card = ({ sale = "Hot Sales"}) => {
-    const {isLoading, data, isError} = useSelector((state : UseSelectorProps) => state.products);
-  return (data && 
-    <CardTopSale>
+    const {data,isLoading} = useSelector((state : UseSelectorProps) => state.products);
+    const previewLoad = [1,2, 3, 4, 5, 6, 7, 8]
+  
+    return (
+      <CardTopSale>
       <main>
         <h5>{sale}</h5>
         <p>See All</p>
       </main>
-    <CardContainer >
-        {data.map((s : ApiProps) => (
-            <section key={s.id}>
+    {!isLoading ? <CardContainer >
+        {
+          data.map((s : ApiProps) => (
+            <Link key={s.id} to={`/product/${s.title}/${s.id}`}>
+            <section >
                 <img src={s.images[0]} alt="" />
                 <div>
                 <h4>{s.title}</h4>
@@ -20,10 +25,21 @@ const Card = ({ sale = "Hot Sales"}) => {
                 </div>
                 <p>{s.description}</p>
             </section>
+            </Link>
         ))}
-    </CardContainer>
+    </CardContainer> : <CardLoadingContainer>
+            {previewLoad.map((s, i) => (
+              <section key={i}>
+                <header></header>
+                <nav></nav>
+                <nav></nav>
+              </section>
+            ))
+            }
+      </CardLoadingContainer>}
     </CardTopSale>
   )
+
 }
 
 export default Card

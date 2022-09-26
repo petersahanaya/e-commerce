@@ -6,6 +6,10 @@ export const CardContainer = styled.nav`
     overflow-x : scroll;
     align-items : center;
 
+    a {
+        text-decoration : none;
+    }
+
     section {
         width : 10rem;
         height : 12rem;
@@ -27,7 +31,8 @@ export const CardContainer = styled.nav`
             justify-content : space-around;
 
             h4 {
-                font-variant : small-caps;
+                letter-spacing : .1rem;
+                color : black;
                 font-size : .8rem;
             }
         }
@@ -53,6 +58,39 @@ export const CardContainer = styled.nav`
     }
 `
 
+export const CardLoadingContainer = styled.div`
+    width : 100vw;
+    overflow-x : scroll;
+    display : flex;
+
+    section {
+        width : 10rem;
+        height : 12rem;
+        transform : scale(1) translateY(-2rem);
+        box-shadow : 0 0 30px rgba(0,0,0,.05);
+        margin-right : 1rem;
+        padding : .7rem;
+        transition : 200ms;
+        display : flex;
+        flex-direction : column;
+        justify-content : space-around;
+        animation : loadingAnimate 1.5s infinite alternate;
+
+        header {
+            width : 10rem;
+            height : 7rem;
+            background : #777777;
+            border-radius : .4rem;
+        }
+        nav {
+            width : 10rem;
+            height : 1rem;
+            background : #777777;
+            border-radius : .4rem;
+        }
+    }
+`
+
 export const CardTopSale = styled.div`
         scroll-snap-align : start;
 main {
@@ -63,7 +101,7 @@ main {
 
     h5 {
         font-size : 1.5rem;
-        font-variant : small-caps;
+        letter-spacing : .2rem; 
     }
     
     p {

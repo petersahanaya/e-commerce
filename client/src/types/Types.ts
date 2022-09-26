@@ -19,13 +19,22 @@ interface ApiProps {
         name: string,
         image: string
         },
-        images: string[]
+        images: string[],
+        quantity? : number
 }
 
-interface UseSelectorProps {
+interface UseSelectorProps{
         products : {
-            isLoading : string,
+            isLoading : boolean,
             data : ApiProps[],
+            isError : null | string
+        }
+}
+
+interface UseSelectorPropsDetail{
+    getProductId : {
+            isLoading : boolean,
+            data : ApiProps,
             isError : null | string
         }
 }
@@ -38,4 +47,4 @@ export const configFetch = (method : string, value : object) => {
     }
 }
 
-export type {RegisterProps, ActionProps, DispatchProps, ApiProps, UseSelectorProps}
+export type {RegisterProps, UseSelectorPropsDetail, ActionProps, DispatchProps, ApiProps, UseSelectorProps}

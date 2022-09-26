@@ -17,10 +17,17 @@ export const FooterContainer = styled.div`
 
     section {
         font-size : 1.8rem;
+
+        a {
+            text-decoration : none;
+            color : black;
+        }
     }
 
     nav {
         background : #FFC300;
+        width : 30px;
+        height : 30px;
         color : white;
         display : flex;
         justify-content : center;
@@ -30,5 +37,10 @@ export const FooterContainer = styled.div`
         padding : .8rem;
         margin-bottom: 3rem;
         box-shadow : 0 0 25px rgba(0,0,0,0.1);
+
+        a {
+            text-decoration : none;
+            color : black;
+        }
     }
 `
