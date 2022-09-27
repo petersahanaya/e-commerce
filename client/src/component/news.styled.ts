@@ -6,7 +6,7 @@ export const NewsContainer = styled.div`
     justify-items : center;
     gap : 1rem;
     scroll-snap-align : start;
-    padding-bottom : 9rem;
+    padding-bottom : 2rem;
     scroll-snap-type : y mandatory;
 
     h3 {
@@ -22,6 +22,7 @@ export const NewsContainer = styled.div`
 
     section {
         width : 19rem;
+        height : 22rem;
         box-shadow : 0 0 30px rgba(0,0,0,.08);
         border-radius : .7rem;
         overflow : hidden;

@@ -1,29 +1,29 @@
 import { BiLeftArrow } from 'react-icons/bi';
 import { ArrowUp, HeaderContainer } from './header.styled';
 import { BsFillArrowUpCircleFill, BsSearch } from 'react-icons/bs';
-import { useEffect, useRef } from 'react';
+import { UseInView } from '../../functions/UseInView';
+import { Link } from 'react-router-dom';
+
 
 const Header = () => {
-  const headerRef = useRef<HTMLDivElement>(null);
-
+  const { elementRef, isInView } = UseInView({rootMargin : '0px', threshold : 0});
   return (
     <>
-    <HeaderContainer id='header' ref={headerRef}>
+    <HeaderContainer id='header' ref={elementRef}>
       <nav>
       <BiLeftArrow />
       </nav>
       <section>
-      <input placeholder='Search for a products'/>
-      <div>
-        <BsSearch/>
-      </div>
+        <Link to='/search'><BsSearch/></Link>
       </section>
     </HeaderContainer>
-    <ArrowUp>
+    {isInView &&
+      <ArrowUp>
       <a href="#header">
       <BsFillArrowUpCircleFill/>
       </a>
     </ArrowUp>
+    }
     </>
   )
 }

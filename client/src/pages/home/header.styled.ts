@@ -26,26 +26,11 @@ export const HeaderContainer = styled.div`
     }
     
     section {
-        position : relative;
-        input {
-            padding : .6rem;
-            width : 12rem;
-            color : black;
-            border : none;
-            outline : none;
-            background : #dddddd;
-            border-radius : .3rem;
-
-            &::placeholder {
-                letter-spacing : .1rem;
-            }
-        }
-
-        div {
-            position : absolute;
-            top : 10px;
-            right : 10px;
-        }
+     font-size : 1.4rem; 
+     a{
+        text-decoration : none;
+        color : black;
+     }
     }
 `
 

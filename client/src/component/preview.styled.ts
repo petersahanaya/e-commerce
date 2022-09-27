@@ -7,6 +7,7 @@ export const PreviewContainer = styled.section`
         height : 14rem;
         max-height : 14rem;
         background : pink;
+        z-index : 5;
 
         img {
             width : 100%;
@@ -17,6 +18,7 @@ export const PreviewContainer = styled.section`
         &::before{
             content : '';
             width : 100%;
+            z-index : 5;
             height : 100%;
             position: absolute;
             background : linear-gradient(to  bottom, rgba(0,0,0,0), rgba(0,0,0,.5));
@@ -28,6 +30,7 @@ export const PreviewContainer = styled.section`
             position : absolute;
             bottom : 25px;
             left : 25px;
+            z-index : 5;
 
             h4 {
                 color : white;      
