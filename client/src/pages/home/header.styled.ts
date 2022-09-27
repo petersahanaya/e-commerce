@@ -5,7 +5,6 @@ export const HeaderContainer = styled.div`
     scroll-snap-align : start;
     display : flex;
     align-items : center;
-    scroll-snap-align : start;
     justify-content : space-around;
     height : 12vh;
     max-height : 4rem;
@@ -48,5 +47,39 @@ export const HeaderContainer = styled.div`
             right : 10px;
         }
     }
+`
+
+export const ArrowUp = styled.main`
+        position : fixed;
+        bottom : 7rem;
+        right : 4rem;
+        z-index : 20;
+        font-size : 2.3rem;
+
+        a {
+            text-decoration : none;
+            display : flex;
+            justify-content : center;
+            border-radius : 5rem;
+            align-items : center;
+            color : #BCE07C;
+            box-shadow : 0 0 20px rgba(0,0,0,.2);
+            animation : bounce 800ms ease-in infinite alternate;
+        }
+
+        @keyframes bounce {
+            0% {
+                transform : translateY(0);
+            }
+            50%{
+                transform : translateY(.5rem);
+            }
+            70%{
+                transform : translateY(-.2rem);
+            }
+            100%{
+                transform : translateY(.5rem);
+            }
+        }
 `
 

@@ -40,7 +40,7 @@ export const PreviewContainer = styled.section`
                 font-size : .6rem;
                 width : 50%;
                 font-style: oblique;
-                margin-bottom: .6rem;
+                margin-bottom: .2rem;
                 letter-spacing : .1rem;
             }
 

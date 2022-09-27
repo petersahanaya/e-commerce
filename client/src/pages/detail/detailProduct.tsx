@@ -1,34 +1,48 @@
 import { Link, useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
-import { UseSelectorPropsDetail } from "../../types/Types";
+import { UseSelectorPropsCart, UseSelectorPropsDetail } from "../../types/Types";
 import { IoIosArrowBack } from 'react-icons/io'
 import { useEffect } from "react";
 import { ContainerDetail, DetailProductLoading } from "./detail.styled";
 import { convertNumber } from "../../functions/convert";
-import { AiOutlineMinusCircle } from 'react-icons/ai';
-import { BsFillCartFill, BsFillPlusCircleFill } from 'react-icons/bs'
+import {  AiOutlineMinusCircle } from 'react-icons/ai';
+import { BsFillCartFill,  BsFillPlusCircleFill } from 'react-icons/bs'
 import { fetchProductId } from "../../redux/feature/getProductIdSlice";
 import { increaseQuantity, decreaseQuantity } from "../../redux/feature/getProductIdSlice";
+import { addItem, reset } from "../../redux/feature/cartSlice";
+import Toast from "../../component/toast";
 
 const DetailProduct = () => {
     const { id } = useParams();
     const dispatch = useDispatch<any>();
     const { data, isLoading } = useSelector((state : UseSelectorPropsDetail) => state.getProductId);
+    const { data : datas, successAdd } = useSelector((state : UseSelectorPropsCart) => state.cart);
 
     useEffect(() => {
-       dispatch(fetchProductId(id!))
-    }, [dispatch]);
+        setTimeout(() => {
+                dispatch(reset());
+        }, 3000);
+
+        dispatch(fetchProductId(id!));
+    }, [dispatch, successAdd]);
 
         return (
+            <>
+            {successAdd && <>
+                <Toast/>
+            </>}
             <ContainerDetail>
         <header>
             <Link to={'/'}>
                 <IoIosArrowBack/>
             </Link>
             <h4>Detail Products</h4>
+            <main>
             <Link to='/product/cart'>
                 <BsFillCartFill/>
+                {datas.length > 0 && <div></div>}
             </Link>
+            </main>
         </header>
         {!isLoading ? <section>
             <nav>
@@ -42,12 +56,20 @@ const DetailProduct = () => {
             </article>
             <div>
                 <main>
+                    <button onClick={() => dispatch(decreaseQuantity())} 
+                    disabled={data?.quantity === 1}
+                    >
                     <AiOutlineMinusCircle
                     />
-                        <p>{data.quantity}</p>
+                    </button>
+                        <p>{data?.quantity}</p>
+                    <button onClick={() => dispatch(increaseQuantity())}
+                    disabled={data?.quantity === 5}
+                    >
                     <BsFillPlusCircleFill />
+                    </button>
                 </main>
-                <Link to=''>Add To Cart</Link>
+                <Link to='' onClick={() => dispatch(addItem(data))}>Add To Cart</Link>
             </div>
         </section> : <>
                 <DetailProductLoading>
@@ -62,6 +84,7 @@ const DetailProduct = () => {
             </>
         }
     </ContainerDetail>
+        </>
   )
 
 }

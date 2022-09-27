@@ -9,12 +9,27 @@ export const ContainerDetail = styled.div`
         justify-content : space-around;
         padding : .7rem;
 
-        a {
-            font-size : 1.6rem;
-            text-decoration : none;
-            color : black;
-        }
+        main {
+            position : relative;
+            
+            a {
+                font-size : 1.6rem;
+                text-decoration : none;
+                color : black;
+            }
 
+            div {
+                display : absolute;
+                top : 0;
+                right : 0;
+                background : red;
+                transform : translate(1.5rem, -2rem);
+                width : 7px;
+                height : 7px;
+                border-radius : 50%;
+            }
+            
+        }        
         h4 {
             font-size : 1.3rem;
         }
@@ -22,9 +37,6 @@ export const ContainerDetail = styled.div`
 
     section {
         div {
-        position : relative;
-        bottom : 0;
-        right : 0;
         display : flex;
         justify-content : space-around;
         text-decoration : none;
@@ -33,8 +45,18 @@ export const ContainerDetail = styled.div`
             display : flex;
             align-items : center;
             gap : 1rem;
-            font-size : 1.5rem;
-            color : #52CBAB;
+
+            button {
+                display : flex;
+                align-items : center;
+                gap : 1rem;
+                background : none;
+                border : none;
+                font-size : 1.5rem;
+                outline : none;
+                color : #52CBAB;
+            }
+
             p {
                 color : black;
                 font-size : 1.1rem;
@@ -145,3 +167,4 @@ export const DetailProductLoading = styled.div`
         }
     }
 `
+

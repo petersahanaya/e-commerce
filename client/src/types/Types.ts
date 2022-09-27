@@ -31,6 +31,14 @@ interface UseSelectorProps{
         }
 }
 
+interface UseSelectorPropsCart{
+        cart : {
+            data : ApiProps[],
+            successAdd : boolean,
+            successRemove : boolean
+        }
+}
+
 interface UseSelectorPropsDetail{
     getProductId : {
             isLoading : boolean,
@@ -47,4 +55,4 @@ export const configFetch = (method : string, value : object) => {
     }
 }
 
-export type {RegisterProps, UseSelectorPropsDetail, ActionProps, DispatchProps, ApiProps, UseSelectorProps}
+export type {RegisterProps, UseSelectorPropsCart, UseSelectorPropsDetail, ActionProps, DispatchProps, ApiProps, UseSelectorProps}

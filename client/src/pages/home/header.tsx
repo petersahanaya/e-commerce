@@ -1,13 +1,14 @@
 import { BiLeftArrow } from 'react-icons/bi';
-import { HeaderContainer } from './header.styled';
-import { BsSearch } from 'react-icons/bs';
+import { ArrowUp, HeaderContainer } from './header.styled';
+import { BsFillArrowUpCircleFill, BsSearch } from 'react-icons/bs';
 import { useEffect, useRef } from 'react';
 
 const Header = () => {
   const headerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <HeaderContainer ref={headerRef}>
+    <>
+    <HeaderContainer id='header' ref={headerRef}>
       <nav>
       <BiLeftArrow />
       </nav>
@@ -18,6 +19,12 @@ const Header = () => {
       </div>
       </section>
     </HeaderContainer>
+    <ArrowUp>
+      <a href="#header">
+      <BsFillArrowUpCircleFill/>
+      </a>
+    </ArrowUp>
+    </>
   )
 }
 

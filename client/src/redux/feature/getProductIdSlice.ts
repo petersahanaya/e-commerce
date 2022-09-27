@@ -3,12 +3,16 @@ import { ApiProps } from "../../types/Types";
 
 interface StateProps {
     isLoading : boolean,
-    data : ApiProps | {}
+    data : ApiProps | any,
+    initiatData : ApiProps | any,
+    successAdd : boolean
 }
 
 const initialState : StateProps  = {
     isLoading : false,
-    data : {}
+    data : {},
+    initiatData : {},
+    successAdd : false
 };
 
 export const fetchProductId = createAsyncThunk('productId/fetchProductId',async (value : number | string) => {
@@ -19,14 +23,17 @@ const getProductIdSlice = createSlice({
     name : 'productId',
     initialState, 
     reducers : {
-        reset(){
-            return {isLoading : false, data : {}}
+        reset(state){
+            return {...state, successAdd : false}
         },
-        increaseQuantity (state : StateProps, action){
-            return {...state, data : {...state.data, quantity : action.payload}};
+        increaseQuantity (state : StateProps){
+            let multiplePrice = state.data?.quantity * state.initiatData?.price;
+            return {...state, data : {...state.data, price : multiplePrice, quantity : state.data?.quantity + 1}};
         },
-        decreaseQuantity (state, action){
-            return {...state, data : {...state.data, quantity : action.payload}};
+        decreaseQuantity (state : StateProps){
+            let decreasePrice = state?.data?.price - state?.initiatData?.price;
+            console.log(state.initiatData.price);
+                return {...state, data : {...state.data, price : decreasePrice || state.initiatData.price, quantity : state.data?.quantity - 1}};
         }
     },
     extraReducers(builder) {
@@ -35,8 +42,8 @@ const getProductIdSlice = createSlice({
         }),
         builder.addCase(fetchProductId.fulfilled, (state, action) => {
             let data = action.payload;
-            data.quantity = 0;
-            return {...state, data, isLoading : false}
+            data.quantity = 1;
+            return {...state, data, initiatData : data, price : data?.price, isLoading : false}
         })
     },
 });
