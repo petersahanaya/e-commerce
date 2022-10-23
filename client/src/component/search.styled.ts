@@ -68,4 +68,45 @@ export const SearchContainer = styled.div`
             margin : 1rem;
         }
     }
+
+    @media screen and (min-width: 768px){
+        width : 100vw;
+        overflow-x : hidden;
+        header {
+            main {
+                input {
+                    width : 30rem;
+                }
+            }
+        }
+
+        main {
+            h3 {
+                font-size : 2rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        header {
+            main {
+                input {
+                    width : 40rem;
+                }
+            }
+        }
+
+        main {
+                display : grid;
+                grid-template-columns : repeat(auto-fit, minmax(300px, 1fr));
+        }
+    }
+`
+
+export const SearchHeading = styled.article`
+    h3 {
+        text-align : center;
+        font-size : 2rem;
+        margin : 1rem;
+    }
 `

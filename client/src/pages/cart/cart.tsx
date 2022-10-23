@@ -3,27 +3,26 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { convertNumber } from "../../functions/convert";
-import { removeItem, reset } from "../../redux/feature/cartSlice";
+import { addQuantity, decreaseQuantity, FetchProductsCart, removeItem, reset } from "../../redux/feature/cartSlice";
 import { UseSelectorPropsCart } from "../../types/Types"
 import Footer from "../home/footer";
 import { CartContainer, NoCartItemContainer, PopUpContainer } from "./cart.styled";
 
 const Cart = () => {
-    const { data, successAdd, successRemove } = useSelector((state : UseSelectorPropsCart) => state.cart);
+    const { data, successAdd, successRemove, initialData } = useSelector((state : UseSelectorPropsCart) => state.cart);
     const total = data.reduce((acc, item) => item.price + acc, 0);
     const dispatch = useDispatch<any>();
 
     useEffect(() => {
         setTimeout(() => {
-            dispatch(reset())
-        }, 3000)
-    }, [successAdd, successRemove]);
+            dispatch(reset(''))
+        }, 3000);
 
-    const transformY = {
-        transform : successRemove ? 'translateY(4rem)' : ''
-    }
+        !initialData.length ? dispatch(FetchProductsCart()) : ''
+    }, [successAdd, successRemove, dispatch]);
+
 
   return (
     <CartContainer>
@@ -36,22 +35,22 @@ const Cart = () => {
             </header>
             <main>
 
-            {data.map((s) => <section onDoubleClick={() => dispatch(removeItem(s.id))} key={s.id}>
-                <img src={s.images[0]} alt={s.title}/>
+            {data.map((s) => <section  key={s.id}>
+                <img onDoubleClick={() => dispatch(removeItem(s.id))} src={s.images[0]} alt={s.title}/>
                 <main>
                 <h4>{s.title}</h4>
                 <p>{s.description}</p>
                 <h5>{convertNumber(s.price)}</h5>
                 </main>
                 <div>
-                <button>
+                <button onClick={() => dispatch(decreaseQuantity(s.id))}>
                     <AiOutlineMinusCircle
                     />
-                    </button>
-                        <p>{s?.quantity}</p>
-                    <button>
+                </button>
+                    <p>{s?.quantity}</p>
+                <button onClick={() => dispatch(addQuantity(s.id))}>
                     <BsFillPlusCircleFill />
-                    </button>
+                </button>
                 </div>
             </section>)}
 
@@ -81,7 +80,7 @@ const Cart = () => {
         <Footer/>
         </>
         }
-        {successRemove && <PopUpContainer style={transformY}>
+        {successRemove && <PopUpContainer>
             <section>
                 <nav>
                 <IoIosTrash/>

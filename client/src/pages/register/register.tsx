@@ -21,12 +21,15 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
         const res = await fetch('http://localhost:3001/login', configFetch("POST", form));
         const data = await res.json();
 
+        
         if(res.status !== 200){
           setError(data.msg);
           setTimeout(() => {
             setError('')
           }, 1500);
+          
         }else {
+          localStorage.setItem('token', data?.accessToken);
           setForm({username : '', email : '', password : ''})
           navigate('/')
         } 

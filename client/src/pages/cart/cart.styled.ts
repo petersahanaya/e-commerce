@@ -128,16 +128,167 @@ export const CartContainer = styled.div`
             }
         }
     }
+
+
+    @media screen and (min-width: 425px){
+        main {
+            flex : 1;
+            padding : 1rem;
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        header {    
+            padding : 1rem 0;
+            a {
+                font-size : 2.2rem;
+                color : black;
+            }
+
+            h4 {
+                font-size : 1.8rem;
+            }
+        }
+
+        main {
+                margin : auto;
+                display : flex;
+                flex-direction : column;
+                justify-content : center;
+                align-items : center;
+                padding-left : 3rem;
+                padding-right : 3rem;
+
+            section {
+                height : 14.5rem;
+                img {
+                    width : 14rem;
+                    border-radius : .3rem;
+                    margin-left : 1rem;
+                }
+
+                div {
+                    margin-right : 3rem;
+                    p {
+                        font-size : 1.3rem;
+                    }
+                button {
+                    font-size : 1.8rem;
+                }            
+                }
+
+
+                main {
+                    p {
+                        width : 20rem;
+                    }
+
+                    h4 {
+                            font-size : 1.3rem;
+                    }
+
+                    h5 {
+                            font-size : 1.4rem;
+                    }
+                }
+            }
+
+
+            footer {
+                margin-top : 2rem;
+
+            }
+        }
+    }
+
+    @media screen and (min-width: 1024px){
+        header {
+            a {
+                font-size : 1.7rem;
+            }
+
+            h4 {
+                font-size : 1.8rem;
+            }
+        }
+
+        main {
+            &{
+                margin : auto;
+                display : flex;
+                flex-direction : column;
+                justify-content : center;
+                align-items : center;
+                padding-left : 3rem;
+                padding-right : 3rem;
+            }
+
+            
+            section {
+                main {
+                    h4 {
+                        font-size : 1.3rem;
+                    }
+
+                    p{
+                        font-size : 1rem;
+                    }
+
+                    h5 {
+                        font-size : 1.2rem;
+                    }
+                }
+
+                img {
+                    width : 11rem;
+                    border-radius : .3rem;
+                    margin-left : 4rem;
+                }
+
+                div {
+                    margin-right : 5rem;
+
+                    p{
+                        font-size : 1.2rem;
+                    }
+
+                    button {
+                        font-size : 1.6rem;
+                    }
+                }
+
+                main {
+                    p {
+                        width : 20rem;
+                    }
+                }
+            }
+
+            footer {
+                margin-top : 2rem;
+                nav {
+                    h3 {
+                        font-size : 2.2rem;
+                    }
+                    
+                    h5 {
+                        font-size : 2.2rem;
+                    }
+                }
+            }
+        }        
+    }
 `
 
 export const PopUpContainer = styled.div`
     position : absolute; 
-    top : 2rem;
-    right : 2rem;
+    top : 6rem;
+    right : 15rem;
     transition : 300ms ease-in;
-
+    display : flex; 
+    justify-content : center;
     section {
-        width : 80vw;
+        width : 16rem;
         height : 2rem;
         transition : 300ms ease-in;
         border-radius : .3rem;
@@ -158,6 +309,7 @@ export const PopUpContainer = styled.div`
             letter-spacing : .1rem;
         }
     }
+
 `
 
 export const NoCartItemContainer = styled.div`
@@ -179,6 +331,31 @@ export const NoCartItemContainer = styled.div`
 
         p {
             color : #515151;
+        }
+    }
+
+
+    @media screen and (min-width: 1024px){
+        nav {
+            img { 
+                width : 12rem;
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px){
+        nav {
+            img {
+                width : 16rem;
+            }
+
+            h3 {
+                font-size : 1.5rem;
+            }
+
+            p {
+                font-size : 1.1rem;
+            }
         }
     }
 `

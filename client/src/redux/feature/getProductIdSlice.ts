@@ -32,7 +32,6 @@ const getProductIdSlice = createSlice({
         },
         decreaseQuantity (state : StateProps){
             let decreasePrice = state?.data?.price - state?.initiatData?.price;
-            console.log(state.initiatData.price);
                 return {...state, data : {...state.data, price : decreasePrice || state.initiatData.price, quantity : state.data?.quantity - 1}};
         }
     },

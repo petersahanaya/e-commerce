@@ -6,12 +6,12 @@ export const PreviewContainer = styled.section`
         position : relative;
         height : 14rem;
         max-height : 14rem;
-        background : pink;
+        background : linear-gradient(to bottom, #d1d1d1, white);
         z-index : 5;
 
         img {
-            width : 100%;
-            height : 100%;
+            margin-left : 8rem;
+            width : 15rem;
             object-fit : cover;
         }
 
@@ -36,19 +36,22 @@ export const PreviewContainer = styled.section`
                 color : white;      
                 margin-bottom : .3rem;
                 letter-spacing : .3rem;
+                font-size : 2rem;
             }
 
-            p {
-                color : white;
-                font-size : .6rem;
-                width : 50%;
-                font-style: oblique;
-                margin-bottom: .2rem;
-                letter-spacing : .1rem;
+            h3 {
+                font-size : 3rem;
             }
 
-            p {
+            p{
                 color : white;
+                background : #212121;
+                    border-radius : 2rem;
+                    display : inline;
+                    padding : .7rem;
+                    font-size : .9rem;
+                    margin-top : 1rem;
+                    cursor: pointer; 
             }
         }
 
@@ -59,6 +62,81 @@ export const PreviewContainer = styled.section`
             100% {
                 transform : translate(0);
             }   
+        }
+
+        @media screen and (min-width : 768px){
+            height : 24rem;
+            max-height : 24rem;
+            display : flex;
+            justify-content : center;
+            align-items : center;
+
+
+            img {
+                margin-top : 4rem;
+                width : 30rem;
+                margin-left : 30rem;
+                object-fit : cover;
+            }
+
+            div {
+                bottom : 4rem;
+                left : 5rem;
+
+                h3 {
+                    font-size : 4rem;
+                }
+
+                h4 {
+                    font-size : 5rem;
+                }
+
+                p {
+                    background : #212121;
+                    border-radius : 2rem;
+                    display : inline;
+                    padding : .7rem;
+                    cursor: pointer;
+                    font-size : 1.2rem;
+                }
+            }
+        }
+
+        @media screen and (min-width : 1024px){
+            height : 24rem;
+            max-height : 24rem;
+            display : flex;
+            justify-content : center;
+            align-items : center;
+
+
+            img {
+                margin-top : 4rem;
+                width : 30rem;
+                margin-left : 30rem;
+                object-fit : cover;
+            }
+
+            div {
+                bottom : 4rem;
+                left : 8rem;
+
+                h3 {
+                    font-size : 4rem;
+                }
+
+                h4 {
+                    font-size : 5rem;
+                }
+
+                p {
+                    background : #212121;
+                    border-radius : 2rem;
+                    display : inline;
+                    padding : .7rem;
+                    cursor: pointer;
+                }
+            }
         }
 `
 

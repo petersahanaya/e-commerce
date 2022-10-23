@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { ApiProps, UseSelectorProps } from "../types/Types";
-import { NewsContainer, NewsLoadingContainer } from "./news.styled"
+import { NewsContainer, NewsHeading, NewsLoadingContainer } from "./news.styled"
 import { convertNumber } from "../functions/convert";
 import { Link } from "react-router-dom";
 
@@ -10,8 +10,11 @@ const News = () => {
 
     if(!isLoading){
         return (
+            <>
+            <NewsHeading>
+            <h3>Product's</h3>
+            </NewsHeading>
             <NewsContainer>
-                <h3>Product's</h3>
                 {isLoading && <p>Loading...</p>}
                 {data && <>   
                     {data.map((s : ApiProps) => (
@@ -28,6 +31,7 @@ const News = () => {
                     ))}
                 </>}
             </NewsContainer>
+            </>
           )
     }else {
         return (

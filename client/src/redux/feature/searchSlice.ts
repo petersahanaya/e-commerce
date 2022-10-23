@@ -24,7 +24,10 @@ const searchSlice = createSlice({
             return {...state, isLoading : true}
         }),
         builder.addCase(SearchProduct.fulfilled, (state, {payload}) => {
-            return {...state, data : payload}
+            const filtered = payload.filter((s : ApiProps) => {
+                return s.images[0] !== ""
+            })
+            return {...state, data : filtered}
         })
     }
 });

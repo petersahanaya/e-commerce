@@ -128,7 +128,153 @@ export const ContainerDetail = styled.div`
                 font-size : 1.5rem;
             }
         }
+
     }
+    @media screen and (min-width: 700px){
+        header {
+            a {
+                font-size : 2rem;
+            }
+
+            h4 {
+                font-size : 1.8rem;
+            }
+        }
+
+       section {
+            display : flex;
+            justify-content : space-around;
+            align-items : center;   
+            
+            h6 {
+                transform : translate(0, -20rem);
+                font-size : 1.1rem;
+            }
+
+            nav {
+                height : 100vh;
+                width : 25rem;
+                padding-left : 20rem;
+                padding-top : 3rem;
+                img {
+                    width : 18rem;
+                    height : 75%;
+                    box-shadow : 0 0 10px rgba(0,0,0,0.1);
+                    border-radius : 1rem;
+                }
+            }
+
+            article { 
+                display : flex;
+                flex-direction : column;
+                width : 18rem;
+                transform : translate(-4rem, -10rem);
+
+            h3 {
+                width : 10rem;    
+                white-space : nowrap;    
+                font-size : 1.8rem;
+            }
+            
+            p {
+                width : 25rem;
+            }
+            }
+
+            div {
+                display : flex;
+                flex-direction : column;
+                align-items : center;
+                gap : 2rem;
+                transform : translateX(-20rem);
+
+                main {
+                   button {
+                    font-size : 2rem;
+                   }
+                }
+
+                a {
+                    width : 20rem;
+                }
+            }
+        }
+    }
+
+    @media screen and (min-width: 1200px){
+        header {
+            a {
+                font-size : 2rem;
+            }
+
+            h4 {
+                font-size : 1.8rem;
+            }
+        }
+
+       section {
+            display : flex;
+            justify-content : space-around;
+            align-items : center;   
+            
+            h6 {
+                transform : translate(0, -20rem);
+                font-size : 1.1rem;
+            }
+
+            nav {
+                height : 100vh;
+                width : 25rem;
+                padding-left : 5rem;
+                padding-top : 3rem;
+                img {
+                    width : 18rem;
+                    height : 75%;
+                    box-shadow : 0 0 10px rgba(0,0,0,0.1);
+                    border-radius : 1rem;
+                }
+            }
+
+            article { 
+                display : flex;
+                flex-direction : column;
+                width : 18rem;
+                transform : translate(-4rem, -10rem);
+
+            h3 {
+                width : 10rem;    
+                white-space : nowrap;    
+                font-size : 1.8rem;
+            }
+            
+            p {
+                width : 40rem;
+            }
+            }
+
+            div {
+                transform : translateX(-27rem);
+                display : flex;
+                justify-content : space-around;
+                align-items : center;
+
+                main {
+                    transform : translate(-6rem, 5rem);
+
+                   button {
+                    font-size : 2rem;
+                   }
+                }
+
+                a {
+                    width : 20rem;
+                    transform : translateX(15rem);
+                }
+            }
+        }
+    }
+
+
 `
 
 export const DetailProductLoading = styled.div`

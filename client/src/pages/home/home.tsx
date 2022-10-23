@@ -4,7 +4,7 @@ import Main from "./main"
 
 const Home = () => {
   return (
-    <div style={{scrollSnapType : 'y mandatory', height : '100vh', overflowY : "scroll"}}>
+    <div >
         <Header />
         <Main />
         <Footer />

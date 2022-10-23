@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { ApiProps, UseSelectorPropsSearch } from "../types/Types"
-import { SearchContainer } from "./search.styled";
+import { SearchContainer, SearchHeading } from "./search.styled";
 import { SearchProduct } from "../redux/feature/searchSlice";
 import {GrFormClose} from 'react-icons/gr'
 import Footer from "../pages/home/footer";
 import { NewsContainer } from "./news.styled";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { convertNumber } from "../functions/convert";
 
 const Search = () => {
@@ -16,7 +16,7 @@ const Search = () => {
     const [result, setResult] = useState<ApiProps[]>([]);
 
     useEffect(() => {
-        if(data.length < 1){
+        if(!data.length){
             dispatch(SearchProduct());
         }
 
@@ -49,14 +49,17 @@ const Search = () => {
         </footer>
         }
 
-        {search && <main>
+        {search && <>
             {data.length > 0 && <>
+            <SearchHeading>
                 <h3>Product's</h3>
+            </SearchHeading>
+                <main>
                 {result.map((s) => (
-                <>
+                    <>
         <NewsContainer key={s.id}>
-                        <Link key={s.id} to={`/product/${s.title}/${s.id}`}>
-                        <section key={s.id}>
+                        <Link to={`/product/${s.title}/${s.id}`}>
+                        <section>
                             <img src={s.images[0]} alt={s.title} />
                             <nav>
                                 <h4>{s.title}</h4>
@@ -72,8 +75,9 @@ const Search = () => {
                 {result.length < 1 && <>
                     <p style={{textAlign : 'center', letterSpacing :'.1rem'}}>There's No item That You Search</p>
                 </>}
-            </>}
         </main>
+            </>}
+        </>
         }
     </SearchContainer>
     <Footer/>

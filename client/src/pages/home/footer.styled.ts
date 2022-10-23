@@ -43,4 +43,12 @@ export const FooterContainer = styled.div`
             color : black;
         }
     }
+
+    @media screen and (min-width : 768px){
+        display : none;
+    }
+
+    @media screen and (min-width : 1024px){
+        display : none;
+    }
 `

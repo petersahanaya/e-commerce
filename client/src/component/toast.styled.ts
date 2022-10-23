@@ -11,12 +11,12 @@ section {
     height : 2rem;
     transition : 300ms ease-in;
     border-radius : .3rem;
-    border : 1px solid #DAF7A6;
     display : flex;
     padding : .3rem;
     align-items : center;
     justify-content : space-around;
-    background : rgba(127, 250, 105, .5);
+    background : white;
+    box-shadow : 0 0 10px rgba(0,0,0,.1);
     transform : translateY(2rem);
 
 
@@ -27,7 +27,15 @@ section {
 
     p {
         letter-spacing : .1rem;
-        color : white;
+        color : #00ff80;
+    }
+}
+
+@media screen and (min-width: 768px){
+    section {
+        transform : translateX(-13rem);
+        width : 18rem;
+        margin : auto;
     }
 }
 `

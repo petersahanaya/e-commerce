@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { ApiProps } from "../../types/Types";
 
 const initialState = {
     isLoading : false,
@@ -9,7 +10,7 @@ export const fetchProducts = createAsyncThunk('products/fetchProducts', async (v
     try{
         return await fetch(`https://api.escuelajs.co/api/v1/products?offset=0&limit=${value}`).then((res) => res.json());
     }catch(err){
-
+        
     }
 })
 
@@ -26,7 +27,10 @@ const productSlice = createSlice({
             return {...state, isLoading : true}
         }),
         builder.addCase(fetchProducts.fulfilled, (state, action) => {
-            return {...state, data : action.payload, isLoading : false}
+            const filtered = action.payload.filter((s : ApiProps) => {
+                return s.images[0] !== ""
+            })
+            return {...state, data : filtered, isLoading : false}
         })
     }
 });

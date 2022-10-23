@@ -20,10 +20,11 @@ const DetailProduct = () => {
 
     useEffect(() => {
         setTimeout(() => {
-                dispatch(reset());
+                dispatch(reset(''));
         }, 3000);
-
-        dispatch(fetchProductId(id!));
+        if(parseInt(id!) !== data?.id){   
+            dispatch(fetchProductId(id!));
+        }
     }, [dispatch, successAdd]);
 
         return (

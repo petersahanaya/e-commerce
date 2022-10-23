@@ -1,4 +1,4 @@
-const { User } = require('../model/User');
+const  {User}  = require('../models');
 const JWT = require('jsonwebtoken');
 require('dotenv').config();
 const { validationResult } = require('express-validator');

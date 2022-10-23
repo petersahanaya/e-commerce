@@ -16,6 +16,11 @@ const Header = () => {
       <section>
         <Link to='/search'><BsSearch/></Link>
       </section>
+      <footer>
+        <Link to="/">Product</Link>
+        <Link to="/product/cart">Cart</Link>
+        <Link to="/profile">Profile</Link>
+      </footer>
     </HeaderContainer>
     {isInView &&
       <ArrowUp>

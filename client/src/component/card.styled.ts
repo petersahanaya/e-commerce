@@ -18,6 +18,7 @@ export const CardContainer = styled.nav`
         margin-right : 1rem;
         padding : .7rem;
         transition : 200ms;
+        overflow : hidden;
 
         img {
             width : 10rem;
@@ -56,6 +57,62 @@ export const CardContainer = styled.nav`
         text-overflow : ellipsis;
         color : #5E5E5E;
     }
+
+    @media screen and (min-width: 768px){
+        section {
+            display : flex;
+            justify-content : center;
+            align-items : center;
+            flex-direction : column;
+            width : 14rem;
+            height : 16rem;
+
+            img {
+                width : 100%;
+                height : 75%;
+            }
+
+            div {
+                h4 {
+                    margin-top : .3rem;
+                    font-size : 1rem;
+                }
+            }
+
+            p:nth-child(3) {
+                display : none;
+            }
+        }
+    }
+    
+    @media screen and (min-width: 1024px){
+        height : 26rem;
+        section {
+            width : 12rem;
+            height : 14rem;
+            transform : translateY(-4rem);
+            overflow : visible;
+
+            nav {
+                h4 {
+
+                }
+
+                p:nth-child(1){
+                    display : none;
+                }
+            }
+
+            img {
+                width : 100%;
+                height : 75%;
+            }
+
+            &:hover {
+            transform : scale(1.03) translateY(-4rem);
+            }
+        }
+    }
 `
 
 export const CardLoadingContainer = styled.div`
@@ -89,6 +146,12 @@ export const CardLoadingContainer = styled.div`
             border-radius : .4rem;
         }
     }
+
+    &::-webkit-scrollbar{
+        display : none;
+        -ms-overflow-style : none;
+        scrollbar-width : none;
+    }
 `
 
 export const CardTopSale = styled.div`
@@ -107,5 +170,27 @@ main {
     p {
         color : #373737;
     }
+
+    @media screen and (min-width: 768px){
+        h5 {
+            font-size : 2.2rem;
+        }
+
+        p {
+            font-size : 1.3rem;
+        }
+    }
+}
+
+
+@media screen and (min-width: 1024px){
+    main {
+        padding : 1rem 2rem .5rem 2rem;
+        margin : 0;
+
+        h5 {
+            font-size : 1.7rem;
+        }
+    }       
 }
 `

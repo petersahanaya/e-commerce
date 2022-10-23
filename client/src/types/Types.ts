@@ -35,7 +35,8 @@ interface UseSelectorPropsCart{
         cart : {
             data : ApiProps[],
             successAdd : boolean,
-            successRemove : boolean
+            successRemove : boolean,
+            initialData : ApiProps[]
         }
 }
 
@@ -50,7 +51,7 @@ interface UseSelectorPropsDetail{
     getProductId : {
             isLoading : boolean,
             data : ApiProps,
-            isError : null | string
+            initialData : ApiProps
         }
 }
 
