@@ -1,8 +1,7 @@
-import React, { ChangeEvent, useEffect, useState } from "react";
+import React, { ChangeEvent, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { configFetch, RegisterProps } from "../../types/Types";
 import { RegisterContainer } from "./register.styled";
-import { useNavigate } from "react-router-dom";
-
 const Register : React.FC<RegisterProps> = ( {title} ) => {
   const [form, setForm] = useState({username : '', email : '', password : ''});
   const [error, setError] = useState('')
@@ -55,8 +54,9 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
         <form onSubmit={handleSubmit}>
             <input onChange={handleChange} name='username' value={form.username} type="text" placeholder="e.g jhon2031"/>
             <input onChange={handleChange} name='email' value={form.email} type="text" placeholder="e.g jhon@example.com"/>
-            <input onChange={handleChange} name='password' value={form.password} type="password" placeholder="e.g example"/>
+            <input onChange={handleChange} name='password' value={form.password} type="password" placeholder="e.g password"/>
             <button>{'Submit'}</button>
+            {title !== 'Login' && <Link to='/login'>Login if you already have an account?</Link>}
         </form>
           {error && <p>{error}</p>}
     </RegisterContainer>

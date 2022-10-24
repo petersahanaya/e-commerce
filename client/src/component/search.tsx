@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux"
-import { ApiProps, UseSelectorPropsSearch } from "../types/Types"
-import { SearchContainer, SearchHeading } from "./search.styled";
-import { SearchProduct } from "../redux/feature/searchSlice";
-import {GrFormClose} from 'react-icons/gr'
-import Footer from "../pages/home/footer";
-import { NewsContainer } from "./news.styled";
-import { Link, useNavigate } from "react-router-dom";
+import { GrFormClose } from 'react-icons/gr';
+import { IoIosArrowBack } from "react-icons/io";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { convertNumber } from "../functions/convert";
+import Footer from "../pages/home/footer";
+import { SearchProduct } from "../redux/feature/searchSlice";
+import { ApiProps, UseSelectorPropsSearch } from "../types/Types";
+import { NewsContainer } from "./news.styled";
+import { SearchContainer, SearchHeading } from "./search.styled";
 
 const Search = () => {
     const { data, isLoading } = useSelector((state : UseSelectorPropsSearch) => state.search);
@@ -33,6 +34,7 @@ const Search = () => {
     <>
     <SearchContainer>
         <header>
+            <Link to="/"><IoIosArrowBack/></Link>
             <main>
             <input value={search} type="text" placeholder="Search For A Products" onChange={(e) => setSearch(e.target.value)}/>
             {search && <button onClick={() => setSearch('')}>
@@ -54,7 +56,6 @@ const Search = () => {
             <SearchHeading>
                 <h3>Product's</h3>
             </SearchHeading>
-                <main>
                 {result.map((s) => (
                     <>
         <NewsContainer key={s.id}>
@@ -75,7 +76,6 @@ const Search = () => {
                 {result.length < 1 && <>
                     <p style={{textAlign : 'center', letterSpacing :'.1rem'}}>There's No item That You Search</p>
                 </>}
-        </main>
             </>}
         </>
         }

@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom"
 import { useSelector, useDispatch } from "react-redux";
 import { UseSelectorPropsCart, UseSelectorPropsDetail } from "../../types/Types";
 import { IoIosArrowBack } from 'react-icons/io'
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { ContainerDetail, DetailProductLoading } from "./detail.styled";
 import { convertNumber } from "../../functions/convert";
 import {  AiOutlineMinusCircle } from 'react-icons/ai';
@@ -10,7 +10,7 @@ import { BsFillCartFill,  BsFillPlusCircleFill } from 'react-icons/bs'
 import { fetchProductId } from "../../redux/feature/getProductIdSlice";
 import { increaseQuantity, decreaseQuantity } from "../../redux/feature/getProductIdSlice";
 import { addItem, reset } from "../../redux/feature/cartSlice";
-import Toast from "../../component/toast";
+const Toast = lazy(() =>import("../../component/toast"))
 
 const DetailProduct = () => {
     const { id } = useParams();

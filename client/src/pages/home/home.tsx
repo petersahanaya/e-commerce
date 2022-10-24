@@ -1,6 +1,7 @@
-import Footer from "./footer"
-import Header from "./header"
-import Main from "./main"
+import { lazy } from "react"
+const Footer = lazy(() => import("./footer"))
+const Header = lazy(() => import("./header"))
+const Main = lazy(() => import("./main"))
 
 const Home = () => {
   return (

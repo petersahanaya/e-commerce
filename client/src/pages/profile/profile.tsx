@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
+import { lazy, useState } from "react"
 import { BsThreeDotsVertical } from "react-icons/bs"
 import { IoIosArrowBack } from "react-icons/io"
 import { Link, useNavigate } from "react-router-dom"
 import Option from "../../component/option"
-import Footer from "../home/footer"
+const Footer = lazy(() => import("../home/footer"))
 import { ProfileContainer } from "./profile.styled"
 
 const Profile = () => {

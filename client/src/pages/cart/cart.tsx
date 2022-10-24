@@ -1,13 +1,13 @@
-import { useEffect } from "react";
+import { lazy, useEffect } from "react";
 import { AiOutlineMinusCircle } from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosTrash } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux"
-import { Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { convertNumber } from "../../functions/convert";
 import { addQuantity, decreaseQuantity, FetchProductsCart, removeItem, reset } from "../../redux/feature/cartSlice";
-import { UseSelectorPropsCart } from "../../types/Types"
-import Footer from "../home/footer";
+import { UseSelectorPropsCart } from "../../types/Types";
+const Footer = lazy(() =>import("../home/footer"))
 import { CartContainer, NoCartItemContainer, PopUpContainer } from "./cart.styled";
 
 const Cart = () => {
@@ -61,6 +61,8 @@ const Cart = () => {
             </nav>
             <button>Check Out</button>
             </footer>
+
+            <p style={{color : '#515151', textAlign : 'center', fontSize : '.9rem', marginTop : '3rem'}}>double click on image to remove item</p>
         </main>
         </>}
         {data.length < 1 && <>

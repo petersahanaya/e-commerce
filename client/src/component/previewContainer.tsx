@@ -1,10 +1,8 @@
 
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-import { convertNumber } from "../functions/convert";
 import { UseSelectorProps } from "../types/Types";
-import { LoadingPreview, PreviewContainer } from "./preview.styled";
-import adidas from './adidas.png'
+import adidas from './adidas.png';
+import { LoadingPreview, PreviewContainer} from "./preview.styled";
 
 const PreviewContainerr= () => {
     const { data, isLoading } = useSelector((state : UseSelectorProps) => state.products);

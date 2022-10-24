@@ -112,4 +112,76 @@ export const ProfileContainer = styled.div`
             }
         }
     }
+
+    @media screen and (min-width : 768px){
+        header {
+            padding : 1rem 0;
+
+            a {
+                font-size : 2.2rem;
+                color : #303030;
+            }
+
+            h4 {
+                font-size : 1.8rem;
+                color : #303030;
+            }
+
+            button {
+                font-size : 1.8rem;
+            }
+        }
+
+        main {
+            img {
+                width : 12rem;
+                height : 12rem;
+            }
+
+            div {
+                h4 {
+                    font-size : 1.6rem;
+                }
+
+                p {
+                    font-size : 1.2rem;
+                }
+            }
+        }
+
+        footer {
+            main {
+                p {
+                    font-size : 1.4rem;
+                }
+            }
+
+            nav {
+                section { 
+                    p:nth-child(1){
+                        font-size : 1.3rem;
+                        width : 8rem;
+                    }
+                }
+            }
+        }
+
+        nav {
+            padding : 2rem;
+
+            p {
+                font-size : 1.6rem;
+            }
+
+            section {
+                img {
+                    width : 7rem;
+                } 
+
+                p:nth-child(2){
+                    font-size : 1.4rem;
+                }
+            }
+        }
+    }
 `

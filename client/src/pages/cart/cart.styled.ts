@@ -254,6 +254,7 @@ export const CartContainer = styled.div`
 
                     button {
                         font-size : 1.6rem;
+                        cursor: pointer;
                     }
                 }
 
@@ -282,8 +283,8 @@ export const CartContainer = styled.div`
 
 export const PopUpContainer = styled.div`
     position : absolute; 
-    top : 6rem;
-    right : 15rem;
+    top : 8rem;
+    right : 8rem;
     transition : 300ms ease-in;
     display : flex; 
     justify-content : center;
@@ -308,6 +309,11 @@ export const PopUpContainer = styled.div`
         p {
             letter-spacing : .1rem;
         }
+    }
+
+    @media screen and (max-width : 600px){
+            top : 6rem;
+            right : 3rem;
     }
 
 `

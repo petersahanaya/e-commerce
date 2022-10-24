@@ -1,14 +1,17 @@
 import { Route, Routes } from 'react-router-dom';
-import Search from './component/search';
-import Cart from './pages/cart/cart';
-import DetailProduct from './pages/detail/detailProduct';
-import Home from './pages/home/home';
-import Profile from './pages/profile/profile';
-import Register from './pages/register/register';
+import { lazy, Suspense } from 'react';
+const Search = lazy(() => import('./component/search'))
+const Cart  = lazy (() =>  import('./pages/cart/cart'))
+const DetailProduct = lazy(() => import('./pages/detail/detailProduct'))
+const Home = lazy(() => import('./pages/home/home'))
+const Profile = lazy(() => import('./pages/profile/profile'))
+const Register = lazy(() => import('./pages/register/register'))
+
 
 const App = () => {
   return (
-    <div className="App">
+    <>
+    <Suspense fallback={''}>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/register' element={<Register title='Register'/>}/>
@@ -18,7 +21,8 @@ const App = () => {
         <Route path='/search' element={<Search/>}/>
         <Route path='/profile' element={<Profile/>}/>
       </Routes> 
-    </div>
+    </Suspense>
+    </>
   )
 }
 

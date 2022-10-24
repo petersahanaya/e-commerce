@@ -15,8 +15,11 @@ export const RegisterContainer = styled.div`
 
     h3 {
         text-align : center;
-        font-size : 2.7rem;
+        font-size : 3rem;
+        font-family : 'Titillium', 'Poppins';
         margin-bottom : .8rem;
+        letter-spacing : .1rem;
+        color : #3d3d3d;
     }
 
     form {
@@ -24,6 +27,15 @@ export const RegisterContainer = styled.div`
         flex-direction : column;
         align-items : center;
         gap : .7rem;
+
+        a {
+            text-decoration : none;
+            cursor: pointer;
+            color : #3d3d3d;
+            font-size : .8rem;
+            border-bottom : 1px solid #63ffaf;
+            margin-top : 2rem;
+        }
 
         input {
             padding : .8rem;
@@ -49,6 +61,32 @@ export const RegisterContainer = styled.div`
             &:hover {
                 background : #5FBE2F;
                 color : white;
+            }
+        }
+    }
+
+    @media screen and (min-width: 768px){
+        h3 {
+            font-size : 4.5rem;
+        }
+
+        form {
+            input {
+                width : 25rem;
+
+                &::placeholder {
+                    font-size : 1.1rem;
+                    padding : 1.2rem;
+                }
+            }
+
+            button {
+                width : 15rem;
+                font-size : 1.2rem;
+            }
+
+            a {
+                font-size : 1.3rem;
             }
         }
     }

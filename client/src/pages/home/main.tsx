@@ -1,13 +1,12 @@
-import { MainContainer } from "./main.styled";
-import PreviewContainerr from "../../component/previewContainer";
-import { useSelector, useDispatch} from "react-redux";
-import { UseSelectorProps } from "../../types/Types";
-import { useEffect, useMemo } from "react";
-import Card from "../../component/card";
-import News from "../../component/news";
-import { fetchProducts } from "../../redux/feature/productsSlice";
-import { UseFetch } from "../../functions/UseFetch";
+import { lazy, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import PreviewContainerr from "../../component/previewContainer";
+import { fetchProducts } from "../../redux/feature/productsSlice";
+import { UseSelectorProps } from "../../types/Types";
+import { MainContainer } from "./main.styled";
+const Card = lazy(() =>import("../../component/card"))
+const News = lazy(() => import("../../component/news"))
 
 const Main = () => {
     const {isLoading, data} = useSelector((state : UseSelectorProps) => state.products);

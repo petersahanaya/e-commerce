@@ -26,4 +26,13 @@ export const OptionContainer = styled.div`
             transform : scale(1.02);
         }
     }
+
+    @media screen and (min-width : 768px){
+        bottom : -12rem;
+        right : 2rem;
+        width : 12rem;
+        a {
+            font-size : 1.2rem;
+        }
+    }
 `

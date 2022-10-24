@@ -1,21 +1,32 @@
 import styled from "styled-components";
 
 export const SearchContainer = styled.div`
+width : 100vw;
+overflow-x : hidden;
     padding-bottom : 8rem;
     header {
         width : 100vw;
         display : flex;
         justify-content : space-around;
         align-items : center;
-        padding : .8rem;
+        padding : .8rem 1rem;
         height : 4rem;
         box-shadow : 0 4px 30px rgba(0,0,0,.05);
+
+        a{
+            font-size : 1.7rem;
+            border : none;
+            text-decoration : none;
+            color : #2C2C2C;
+            outline : none;
+            cursor: pointer;
+        }
 
         main {
         position : relative;
 
             input {
-                width : 16rem;
+                width : 12rem;
                 padding : .8rem;
                 border : none;
                 outline : none;

@@ -10,6 +10,10 @@ export const HeaderContainer = styled.div`
     max-height : 4rem;
     box-shadow : 0 3px 3px rgba(0,0,0,0.04);
     background : rgba(255, 255, 255, 0);
+    position : fixed;
+    top : 0;
+    right : 0;
+    z-index : 30;
     backdrop-filter : blur(30px);
 
     nav {
