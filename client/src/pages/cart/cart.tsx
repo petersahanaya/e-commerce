@@ -5,15 +5,34 @@ import { IoIosArrowBack, IoIosTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { convertNumber } from "../../functions/convert";
+import getStripe from "../../functions/stripe";
 import { addQuantity, decreaseQuantity, FetchProductsCart, removeItem, reset } from "../../redux/feature/cartSlice";
 import { UseSelectorPropsCart } from "../../types/Types";
-const Footer = lazy(() =>import("../home/footer"))
 import { CartContainer, NoCartItemContainer, PopUpContainer } from "./cart.styled";
+const Footer = lazy(() =>import("../home/footer"))
 
 const Cart = () => {
     const { data, successAdd, successRemove, initialData } = useSelector((state : UseSelectorPropsCart) => state.cart);
     const total = data.reduce((acc, item) => item.price + acc, 0);
     const dispatch = useDispatch<any>();
+
+    const handleCheckOut = async () => {
+        const stripe = await getStripe();
+
+        const response = await fetch('http://localhost:3001/stripe', {
+            method : "POST",
+            headers :{
+                "Content-Type" : "application/json"
+            },
+            body : JSON.stringify({cartItems : data})
+        });
+
+        if(!response.ok) return 
+
+        const datas = await response.json();        
+
+        stripe.redirectToCheckout({ sessionId :  datas.session.id})
+    }
 
     useEffect(() => {
         setTimeout(() => {
@@ -59,7 +78,7 @@ const Cart = () => {
                 <h5>Total: </h5>
                 <h3>{convertNumber(total)}</h3>
             </nav>
-            <button>Check Out</button>
+            <button onClick={handleCheckOut}>Check Out</button>
             </footer>
 
             <p style={{color : '#515151', textAlign : 'center', fontSize : '.9rem', marginTop : '3rem'}}>double click on image to remove item</p>

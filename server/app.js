@@ -12,9 +12,10 @@ const accessTokenVerify = require('./middleware/jwtVerify');
 const users = require("./routes/users");
 const { refreshTokenController } = require('./controllers/refreshTokenController');
 const profile = require('./routes/profile');
-const fileUpload = require('express-fileupload');const allowSize = require('./middleware/allowSize')
+const fileUpload = require('express-fileupload');
+const allowSize = require('./middleware/allowSize')
 const isImage = require('./middleware/isImage')
-
+const StripeController = require('./routes/stripe');
 //PORT
 const PORT = process.env.PORT || 3001;
 
@@ -31,6 +32,7 @@ App.use('/login', login);
 App.use('/profile', allowSize,profile);
 App.use('/users', accessTokenVerify, users);
 App.get('/token', accessTokenVerify,refreshTokenController);
+App.use('/stripe', StripeController)
 
 //SERVER & DATABASE RUN
 db.sequelize.sync().then(() => {
