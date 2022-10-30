@@ -35,14 +35,61 @@ export const ProfileContainer = styled.div`
         justify-content : space-around;
         align-items : center;
 
-        img {
-            width : 10rem;
-            height : 10rem;
-            border-radius : 50%;
-            box-shadow : 0 0 10px rgba(0,0,0,.1);
-            object-fit : cover;
-        }
+        footer {
+            position : relative;
 
+            form {
+                position : absolute;
+                bottom : 0;
+                right : 0;
+
+                button {
+                    padding : .7rem;
+                    color : #7deb34;
+                    background : black;
+                    display : flex;
+                    font-size : 1.2rem;
+                    justify-content : center;
+                    align-items : center;
+                    border-radius : 3rem;
+                    border : none;
+                }
+            }
+
+            input[type="file"]{
+                display : none;
+            }
+
+            label {
+                width : 3rem;
+                display : flex;
+                justify-content : center;
+                align-items : center;
+                font-size : 2.1rem;
+                background : black;
+                color : white;
+                border-radius : 3rem;
+                padding : .4rem;
+                position : absolute;
+                bottom : 0;
+                right : 0;
+
+                button {
+                    background : none;
+                    color : white;
+                    border : none;
+                    outline : none;
+                }
+            }
+
+            img {
+                width : 10rem;
+                height : 10rem;
+                border-radius : 50%;
+                box-shadow : 0 0 10px rgba(0,0,0,.1);
+                object-fit : cover;
+            }   
+        }
         div {
             h4 {
                 letter-spacing : .1rem;
@@ -92,14 +139,18 @@ export const ProfileContainer = styled.div`
 
     nav {
         padding : 1rem;
+        margin-top : 3rem;
+        
         p{
             color : #4D4D4D;
         }
         
         section {
+            width : 8rem;
+            margin : auto;
             display : flex;
             align-items : center;
-            justify-content : space-evenly;
+            justify-content : space-around;
 
             img {
                 width : 5rem;

@@ -18,17 +18,17 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
 
     if(title === 'Login'){
         const res = await fetch('http://localhost:3001/login', configFetch("POST", form));
-        const data = await res.json();
+        const data : {accessToken : string, msg? : string} = await res.json();
 
         
         if(res.status !== 200){
-          setError(data.msg);
+          setError(data.msg!);
           setTimeout(() => {
             setError('')
           }, 1500);
           
         }else {
-          localStorage.setItem('token', data?.accessToken);
+          localStorage.setItem('TOKEN', data?.accessToken);
           setForm({username : '', email : '', password : ''})
           navigate('/')
         } 
@@ -56,7 +56,7 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
             <input onChange={handleChange} name='email' value={form.email} type="text" placeholder="e.g jhon@example.com"/>
             <input onChange={handleChange} name='password' value={form.password} type="password" placeholder="e.g password"/>
             <button>{'Submit'}</button>
-            {title !== 'Login' && <Link to='/login'>Login if you already have an account?</Link>}
+            {title !== 'Login' ? <Link to='/login'>Login if you already have an account?</Link> : <Link to='/'>Continue Shopping</Link>}
         </form>
           {error && <p>{error}</p>}
     </RegisterContainer>

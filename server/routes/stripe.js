@@ -4,7 +4,6 @@ const router = require("express").Router();
 router.post('/', async (req, res) => {
   try {
     const { cartItems } = req.body;
-    console.log(cartItems)
     const params = {
       mode: "payment",
       submit_type: "pay",

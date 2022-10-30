@@ -1,4 +1,4 @@
-const  {User}  = require('../models');
+const  {User}  = require('../models/index.js');
 const JWT = require('jsonwebtoken');
 require('dotenv').config();
 const { validationResult } = require('express-validator');
@@ -27,7 +27,7 @@ const loginController = async (req, res) => {
             username : Find.username
         },
             process.env.ACCESS_TOKEN,
-            {expiresIn : '10m'}
+            {expiresIn : '30d'}
         );
 
         const refreshToken = JWT.sign({

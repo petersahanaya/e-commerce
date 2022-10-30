@@ -1,6 +1,6 @@
 const bcrypt = require('bcrypt');
 const { validationResult } = require("express-validator");
-const  {User}  = require('../models')
+const { User }  = require('../models/index.js')
 
 const registerController = async (req, res) => {
     const { username, email, password } = req.body;
@@ -11,10 +11,9 @@ const registerController = async (req, res) => {
     }
 
         const duplicate = await User.findOne({
-            where : {
-            username : username
-            }
+            where : {username}
         })
+
 
         if(duplicate){
             return res.status(400).json({msg : "Someone is already use this username..."})
@@ -30,7 +29,6 @@ const registerController = async (req, res) => {
             });
             res.status(200).json({success : "User Has Being Added.."});
         }catch(err){
-            console.log(err)
         }
 }
 

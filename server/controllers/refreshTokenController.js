@@ -1,5 +1,5 @@
 const JWT = require("jsonwebtoken");
-const User = require('../models/User');
+const {User} = require('../models/index.js');
 const refreshTokenController = (req, res) => {
     const token = req.cookies.refreshToken;
 

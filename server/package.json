@@ -1,17 +1,17 @@
 {
-  "name": "server",
+  "name": "peter sahanaya",
   "version": "1.0.0",
-  "description": "",
+  "description": "P3Store Server Side E-commerce",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
-    "body-parser": "^1.20.0",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",

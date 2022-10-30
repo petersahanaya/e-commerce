@@ -3,7 +3,7 @@ import { AiOutlineMinusCircle } from "react-icons/ai";
 import { BsFillPlusCircleFill } from "react-icons/bs";
 import { IoIosArrowBack, IoIosTrash } from "react-icons/io";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { convertNumber } from "../../functions/convert";
 import getStripe from "../../functions/stripe";
 import { addQuantity, decreaseQuantity, FetchProductsCart, removeItem, reset } from "../../redux/feature/cartSlice";
@@ -15,6 +15,7 @@ const Cart = () => {
     const { data, successAdd, successRemove, initialData } = useSelector((state : UseSelectorPropsCart) => state.cart);
     const total = data.reduce((acc, item) => item.price + acc, 0);
     const dispatch = useDispatch<any>();
+    const navigate = useNavigate();
 
     const handleCheckOut = async () => {
         const stripe = await getStripe();
@@ -22,12 +23,13 @@ const Cart = () => {
         const response = await fetch('http://localhost:3001/stripe', {
             method : "POST",
             headers :{
+                Authorization : `Bearer ${localStorage.getItem("TOKEN")}`,
                 "Content-Type" : "application/json"
             },
             body : JSON.stringify({cartItems : data})
         });
 
-        if(!response.ok) return 
+        if(!response.ok) return navigate('/register')
 
         const datas = await response.json();        
 

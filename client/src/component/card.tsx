@@ -11,7 +11,6 @@ const Card = ({ sale = "Hot Sales"}) => {
       <CardTopSale>
       <main>
         <h5>{sale}</h5>
-        <p>See All</p>
       </main>
     {!isLoading ? <CardContainer >
         {

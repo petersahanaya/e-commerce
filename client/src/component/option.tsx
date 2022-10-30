@@ -1,14 +1,12 @@
-import { Link } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { OptionContainer } from "./option.styled"
 
-const options = ['Edit Profile', 'Logout', 'Register'];
+const options = ['Logout', 'Register'];
 
-const Navigates = (value : string) => {
-    if(value === 'Edit Profile') {
-        return "/edit"
-    }else if(value === 'Login') {
+const Navigates = (value: string) => {
+    if (value === 'Login') {
         return "/login"
-    }else if(value === 'Logout'){
+    } else if (value === 'Logout') {
         return ''
     }
     else {
@@ -16,16 +14,26 @@ const Navigates = (value : string) => {
     }
 };
 
+
+
 const Option = () => {
-  return (
-    <OptionContainer>
-        {options.map((s) => (
-            <>
-                <Link to={Navigates(s)}>{s}</Link>
-            </>
-        ))}
-    </OptionContainer>
-  )
+    const navigate = useNavigate();
+    const handleClick = (s : string) => {
+        if(s === "Logout"){
+            localStorage.removeItem('TOKEN')
+        }else {
+            navigate(`/${s}`)
+        }
+    }
+    return (
+        <OptionContainer >
+            {options.map((s, i) => (
+                <section key={i}>
+                    <button onClick={() => handleClick(s)}>{s}</button>
+                </section>
+            ))}
+        </OptionContainer>
+    )
 }
 
 export default Option

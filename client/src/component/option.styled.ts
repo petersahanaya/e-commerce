@@ -28,8 +28,8 @@ export const OptionContainer = styled.div`
     }
 
     @media screen and (min-width : 768px){
-        bottom : -12rem;
-        right : 2rem;
+        bottom : -8rem;
+        right : 4rem;
         width : 12rem;
         a {
             font-size : 1.2rem;
