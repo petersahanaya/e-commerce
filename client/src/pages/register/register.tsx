@@ -18,7 +18,7 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
     if(!(form.username && form.email && form.password)) return alert("Username, Email & Password are REQUIRED...");
 
     if(title === 'Login'){
-        const res = await fetch('http://localhost:3001/login', configFetch("POST", form));
+        const res = await fetch('https://motionless-tick-top-coat.cyclic.app/login', configFetch("POST", form));
         const data : {accessToken : string, msg? : string} = await res.json();
 
         
@@ -34,7 +34,7 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
           navigate('/')
         } 
     }else {
-        const res = await fetch('http://localhost:3001/register', configFetch("POST", form));
+        const res = await fetch('https://motionless-tick-top-coat.cyclic.app/register', configFetch("POST", form));
         const data = await res.json();
         
         if(res.status !== 200){

@@ -35,7 +35,7 @@ const Profile = () => {
             const token = localStorage.getItem("TOKEN");
             if(!token) return setError(true);
 
-            fetch('http://localhost:3001/token/check', {
+            fetch('https://motionless-tick-top-coat.cyclic.app/token/check', {
                 method : "GET",
                 headers : {
                     'Authorization' : `Bearer ${token}`
@@ -47,7 +47,7 @@ const Profile = () => {
                 setError(true);
             });
 
-            fetch('http://localhost:3001/user/profile', {
+            fetch('https://motionless-tick-top-coat.cyclic.app/user/profile', {
                 method : "GET",
                 headers : {
                     'Authorization' : `Bearer ${token}`
@@ -66,11 +66,9 @@ const Profile = () => {
 
     const formData = new FormData();
 
-    if(!files) return console.log("NEED FILES")
-
     formData.append('file', files, files['name'])
 
-    fetch('http://localhost:3001/profile', {
+    fetch('https://motionless-tick-top-coat.cyclic.app/profile', {
         method : "POST",
         headers : {
             Authorization : `Bearer ${localStorage.getItem("TOKEN")}`

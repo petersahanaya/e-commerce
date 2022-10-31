@@ -9,7 +9,7 @@ const Card = lazy(() =>import("../../component/card"))
 const News = lazy(() => import("../../component/news"))
 
 const Main = () => {
-    const {isLoading, data} = useSelector((state : UseSelectorProps) => state.products);
+    const {data} = useSelector((state : UseSelectorProps) => state.products);
     const dispatch = useDispatch<any>();
     const navigate = useNavigate();
 
