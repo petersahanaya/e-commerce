@@ -2,6 +2,7 @@ import React, { ChangeEvent, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { configFetch, RegisterProps } from "../../types/Types";
 import { RegisterContainer } from "./register.styled";
+import { useCallback } from "react";
 const Register : React.FC<RegisterProps> = ( {title} ) => {
   const [form, setForm] = useState({username : '', email : '', password : ''});
   const [error, setError] = useState('')
@@ -12,7 +13,7 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
     setForm((prev) => ({...prev, [name] : value}));
   };
 
-  const handleSubmit = async (e : React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = useCallback(async (e : React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if(!(form.username && form.email && form.password)) return alert("Username, Email & Password are REQUIRED...");
 
@@ -46,7 +47,7 @@ const Register : React.FC<RegisterProps> = ( {title} ) => {
           navigate('/login');
         } 
     }
-  }
+  }, [title, form.username, form.email, form.password])
 
   return (
     <RegisterContainer>

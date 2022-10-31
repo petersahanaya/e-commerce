@@ -1,13 +1,8 @@
 
-import { useSelector } from "react-redux";
-import { UseSelectorProps } from "../types/Types";
 import adidas from './adidas.png';
-import { LoadingPreview, PreviewContainer} from "./preview.styled";
+import { PreviewContainer} from "./preview.styled";
 
 const PreviewContainerr= () => {
-    const { data, isLoading } = useSelector((state : UseSelectorProps) => state.products);
-    
-    if(!isLoading){
         return (
             <>
             <PreviewContainer>
@@ -20,15 +15,6 @@ const PreviewContainerr= () => {
             </PreviewContainer>
             </>
           )
-    }else {
-       return ( <LoadingPreview>
-
-            <section>
-
-            </section>
-        </LoadingPreview>)
-    }
-  
 }
 
 export default PreviewContainerr

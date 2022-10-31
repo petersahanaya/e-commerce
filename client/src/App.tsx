@@ -7,11 +7,12 @@ const Home = lazy(() => import('./pages/home/home'))
 const Profile = lazy(() => import('./pages/profile/profile'))
 const Register = lazy(() => import('./pages/register/register'))
 const Success = lazy(() => import('./pages/success/success'));
+const Loading = lazy(() => import('./component/Loading'))
 
 const App = () => {
   return (
     <>
-    <Suspense fallback={''}>
+    <Suspense fallback={<Loading/>}>
       <Routes>
         <Route path='/' element={<Home />}/>
         <Route path='/register' element={<Register title='Register'/>}/>

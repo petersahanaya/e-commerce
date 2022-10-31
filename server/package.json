@@ -1,14 +1,17 @@
 {
-  "name": "peter sahanaya",
+  "name": "server",
   "version": "1.0.0",
   "description": "P3Store Server Side E-commerce",
   "main": "index.js",
+  "engines" : {
+    "node" : "16.x"
+  },
   "scripts": {
     "start": "node app.js",
     "dev": "nodemon app.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "Peter Sahanaya",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.0.1",
@@ -20,6 +23,7 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "mysql2": "^2.3.3",
+    "nodemon": "^2.0.20",
     "sequelize": "^6.23.0",
     "stripe": "^10.15.0"
   },

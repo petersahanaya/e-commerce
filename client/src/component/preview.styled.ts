@@ -139,11 +139,3 @@ export const PreviewContainer = styled.section`
             }
         }
 `
-
-export const LoadingPreview = styled.div`
-    width : 100vw;
-    height : 14rem;
-    max-height : 14rem;
-    background : #777777;
-    animation : loadingAnimate 1.5s infinite alternate;
-`

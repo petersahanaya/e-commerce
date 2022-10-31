@@ -11,7 +11,7 @@ import { NewsContainer } from "./news.styled";
 import { SearchContainer, SearchHeading } from "./search.styled";
 
 const Search = () => {
-    const { data, isLoading } = useSelector((state : UseSelectorPropsSearch) => state.search);
+    const { data } = useSelector((state : UseSelectorPropsSearch) => state.search);
     const dispatch = useDispatch<any>();
     const [search, setSearch] = useState('');
     const [result, setResult] = useState<ApiProps[]>([]);
